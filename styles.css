@@ -1,0 +1,511 @@
+@font-face {
+  font-family: "chalk";
+  src: url(fonts/Filmcryptic.ttf) format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  padding:0;
+  margin: 0;
+  background: #f4f4f4;
+}
+
+::-webkit-scrollbar {
+  background-color: rgba(58, 58, 58, 0.205);
+}
+::-webkit-scrollbar-track  {
+  border: 1px solid rgb(104, 104, 104);
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(104, 104, 104);
+  border-radius: 5px;
+}
+
+h1, h2, h3 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 3px silver;
+}
+
+mark {
+  background-color: #f7f7f7;
+  padding: 0 5px;
+  border: 1px dotted gray;
+  border-radius: 3px;
+}
+
+header {
+  margin: 0;
+  padding: 0;
+}
+header h1 {
+  margin: 20px 0 0;
+  font-size: 2.7em;
+  line-height: 1.1;
+  display: block;
+  color: #005a83;
+  transform: translate(0, 0)
+}
+
+h2 {
+  color: #777;
+  margin: 40px 0;
+  font-size: 1.4em;
+}
+h3 {
+  color: #555;
+  margin: 40px 0 30px;
+  font-size: 1.2em;
+}
+
+h4 {
+  color: #333;
+  margin: 30px 0 20px;
+  font-size: 1.1em;
+}
+
+
+li {
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+ul ul li {
+  margin: 0;
+}
+
+.flex {
+  display: flex;
+}
+.space-between {
+  justify-content: space-between;
+}
+
+.wide {
+  width: 100%;
+}
+
+.fifty-element {
+  width: 50%;
+  position: relative;
+}
+.fifty-element * {
+  margin-right: 4px;
+}
+.pad-left {
+  padding-left: 60px
+}
+.no-margin {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+::selection {
+  background-color: rgb(139, 189, 39);
+  color: white;
+}
+
+
+/* LAYOUT */
+#page {
+  max-width: 1000px;
+  min-height: 100vh;
+  padding-top: 30px;
+  margin: 0 auto;
+  font-size: 1.4em;
+  line-height: 1.3;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #555;
+  background: white;
+}
+
+article {
+  margin: 60px 0;
+  padding-top: 20px;
+  border-top: 2px dashed #f0f0f0;
+}
+
+section {
+  margin: 60px 0;
+}
+
+article:first-of-type {
+  margin-top: 0;
+  border: none;
+}
+
+/* COURS */
+
+#cours {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 0 10px 50px;
+}
+
+#cours > div {
+  margin-bottom: 40px;
+}
+
+#cours a,
+#cours a:visited {
+  color: rgb(2, 127, 223);
+  font-weight: 600;
+}
+#cours a:hover {
+  color: orangered;
+}
+
+
+pre {
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  -moz-tab-size:    2; /* Firefox 4+ */
+    -o-tab-size:      2; /* Opera 11.5 & 12.1 only */
+    tab-size:         2; /* Chrome 21+, Safari 6.1+, Opera 15+ */
+}
+code {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: rgb(189, 235, 255);
+  color: #777;
+  padding: 0 3px;
+  font-weight: 600;
+  font-size: .85em;
+  border-radius: 4px;
+}
+
+code.gris {
+  background-color: rgb(160, 160, 160);
+  padding: 0 3px;
+  font-size: .9em;
+}
+
+.reset {
+  margin: 20px 0;
+  padding: 0;
+}
+.reset * {
+  padding: 0;
+  margin: 0;
+}
+
+.small {
+  font-size: .9em;
+  background-color: rgba(0, 0, 0, 0.105)
+}
+
+.decale {
+  margin-left: 60px;
+}
+
+.decale h4 {
+  margin-bottom: 0;
+}
+
+
+
+.outputs {
+  padding: 0px 0;
+  box-shadow: 0 0 8px silver;
+}
+.output {
+  position: relative;
+  display: block;
+  padding: 16px 10px 1px;
+  max-width: 100%;
+  box-shadow: 0 4px 12px silver;
+  margin: 0 2px;
+  z-index: 1;
+}
+.output:before {
+  content: " \2022 \2022 \2022";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  padding-left: 10px;
+  width: calc(100% - 10px);
+  border-bottom: 1px solid rgb(199, 199, 199);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  color: white;
+  background: rgb(227, 227, 227);
+  font-size: 2em;
+  line-height: .6;
+}
+
+.output h3 {
+  text-shadow: none;
+}
+.output * {
+  height: 100%;
+}
+
+.tip {
+  padding: 5px 10px 10px;
+  border-radius: 2px;
+  box-shadow: inset 0 4px 12px silver;
+  color: rgb(88, 123, 145);
+  font-size: .92em;
+  line-height: 1.3;
+  text-shadow: 0 -1px white, 0 1px rgb(199, 199, 199);
+  width: calc(100% - 4px);
+  margin-left: 2px;
+  margin-top: 1px;
+  border-top: 1px dashed rgb(89, 89, 89);
+}
+
+.tip mark {
+  color: rgb(88, 123, 145);
+  background:none;
+  border-color: rgb(88, 123, 145);
+}
+
+.tip table {
+  margin: 0 auto;
+  padding: 0 10px;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+}
+
+.tip td {
+  padding-right: 10px;
+  text-align: center;
+}
+.tip td:first-of-type {
+  padding-right: 30px;
+}
+
+.attention {
+  border: 2px solid royalblue;
+  padding:  30px;
+  position: relative;
+  top: 30px;
+  border-radius: 6px;
+  color: rgb(2, 28, 106);
+  margin-bottom: 30px;
+}
+.attention:before {
+  content: "○⦿○⦿○⦿○⦿○";
+  position: absolute;
+  top: -13.5px;
+  left: 50%;
+  color: white;
+  background: royalblue;
+  width: 144px;
+  transform: translateX(-80px);
+  font-size: .8em;
+  font-weight: 800;
+  display: inline-block;
+  text-align: center;
+  border-radius: 3px;
+}
+.attention:after {
+  content: "○⦿○⦿○⦿○⦿○";
+  position: absolute;
+  bottom: -13.5px;
+  left: 50%;
+  color: white;
+  background: royalblue;
+  width: 144px;
+  transform: translateX(-80px);
+  font-size: .8em;
+  font-weight: 800;
+  display: inline-block;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.attention table {
+  margin: 0 auto 20px;
+}
+
+.attention table td {
+  text-align: center;
+  min-width: 40px;
+}
+
+.serre {
+  padding: 5px 10px;
+  background: rgb(255, 188, 231);
+  border-radius: 5px;
+  color: black;
+  font-size: 1.2em;
+}
+
+/* OLGA */
+
+#zone-olga {
+  /* background: rgb(227, 227, 227); */
+  padding: 20px 0;
+}
+
+span.balise-tip {
+  font-size: 1rem;
+  color: silver;
+}
+
+#instructions {
+  position: relative;
+  background-color: rgb(58, 58, 58);
+  color: white;
+  font-size: 1.1em;
+  line-height: 1.4em;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 0 auto 20px;
+  padding: 10px 60px;
+}
+
+
+#backToTop {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  font-size: .6em;
+}
+
+#backToTop a {
+  color: rgb(1, 196, 196);
+  padding: 10px 30px;
+  text-decoration: none;
+}
+#backToTop a:hover {
+  color: cyan;
+}
+
+
+#exec {
+  position: relative;
+  background: #fefefe;
+  border: 10px dotted #eee;
+  border-radius: 19px;
+  padding: 40px;
+  margin: 20px;
+  box-shadow: 0 0 1px 1px #eee;
+  animation: border-color-1 .5s infinite alternate;
+}
+
+#exec:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-sizing: border-box;
+  border-radius: 18px;
+  border: 10px dotted #eee;
+  box-shadow: inset 0 0 1px 1px #eee;
+  animation: border-color-2 .6s infinite alternate-reverse;
+}
+
+
+@keyframes border-color-1 {
+  to { border-color: #ddd; }
+}
+@keyframes border-color-2 {
+  to { border-color: #ddd; }
+}
+
+#instructions p {
+  margin-left: 10px;
+}
+
+#instructions h2 {
+  margin-left: 10px;
+  color: #eee;
+}
+#instructions h4 {
+  margin: 40px 10px 20px;
+  color: #ddd;
+  text-shadow: none;
+}
+#instructions code {
+  background-color: rgb(176, 83, 44);
+}
+
+#instructions #policiers {
+  font-size: 1.8em;
+}
+
+h2.h-olga {
+  background-color: orangered;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  font-size: 1.1em;
+  margin: 5px auto 20px;
+  width: 360px;
+  text-shadow: none;
+}
+h2.h-olga a {
+  color: cyan;
+}
+
+h2.h-olga a:hover {
+  color: black;
+}
+
+h2.h-olga:hover {
+  color: rgb(179, 255, 1);
+  background-color: white;
+  animation: vers-bas .5s ease-in-out infinite alternate,
+             color-change .4s .5s 2 alternate,
+             updown .1s 6 alternate,
+             largeur .5s .3s ease-in ;
+}
+
+h2.h-olga:hover span {
+  animation: vers-bas .5s infinite alternate;
+}
+@keyframes vers-bas {
+  to {
+    color: rgb(247, 0, 255);
+    transform: translateY(1px);
+  }
+}
+
+@keyframes color-change {
+  50% {background: rgb(255, 0, 195); border-radius: 10px;}
+  100% {background: transparent; border-radius: 10px;}
+}
+
+@keyframes updown {
+  to {transform: translateY(3px)}
+}
+@keyframes largeur {
+  to {width: 600px;}
+}
+
+.zone-exolga {
+  margin: 20px auto;
+  width: 80%;
+  background: orangered;
+  color: white;
+  border-radius: 5px;
+  padding: 20px 80px;
+  font-weight: 800;
+}
+
+
+
+.footnotes {
+  display: none;
+}
+
+/* page des exercices */
+
+.h1-exolga {
+  color: blueviolet;
+}
+
+
